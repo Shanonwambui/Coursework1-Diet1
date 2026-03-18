@@ -2,8 +2,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-# Dictionary mapping the ID (1, 2, 3) to your specific images
-# Note: I've updated the keys to '1', '2', and '3' to match Table 1
+
 image_data = {
     "1": {
         "url": "https://storage.googleapis.com/s2561435-_ccws_cw1_diet1/journey.jpg",
@@ -19,7 +18,7 @@ image_data = {
     }
 }
 
-# The <chosenpath> here is 'view'. You can change this to anything you like.
+# The <chosenpath> here is 'view'
 @app.route('/view/<image_num>')
 def display_image(image_num):
     if image_num in image_data:

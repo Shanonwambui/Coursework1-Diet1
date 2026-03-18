@@ -4,11 +4,10 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Replace with your actual bucket name and ID
 BUCKET_NAME = "s2561435-_ccws_cw1_diet1"
 STUDENT_ID = "S2561435"
 
-# Dictionary mapping Table 1 numbers to your actual filenames
+# Dictionary mapping Table 1 numbers  filenames
 file_map = {
     "1": "journey.jpg",
     "2": "music.jpg",
@@ -39,7 +38,7 @@ def get_metadata(image_num):
     api_url = f"https://storage.googleapis.com/storage/v1/b/{BUCKET_NAME}/o/{filename}"
 
     try:
-        # 2. Call the REST API method (as required by the task)
+        # 2. Call the REST API method 
         response = requests.get(api_url)
         
         if response.status_code == 200:
@@ -62,5 +61,5 @@ def get_metadata(image_num):
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    # 0.0.0.0 makes it accessible on your local network/VM
+    # 0.0.0.0 makes it accessible on local network/VM
     app.run(host="0.0.0.0", port=8080, debug=True)
